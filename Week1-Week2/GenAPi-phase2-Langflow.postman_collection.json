@@ -1,0 +1,85 @@
+{
+  "info": {
+    "_postman_id": "47917228-57fb-427f-97f0-213b53821817",
+    "name": "GenAPi-phase2-Langflow",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49189705",
+    "_collection_link": "https://go.postman.co/collection/49189705-47917228-57fb-427f-97f0-213b53821817?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "TestcaseGenerator chat",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "sk-k2DHaYVe59FrcbOqEaXbkE8qQxE9dRcG-eH0kVPS7LU",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"output_type\": \"chat\",\r\n    \"input_type\": \"chat\",\r\n    \"input_value\": \"Generate testcases for fund transfer\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:7860/api/v1/run/e3232e8c-655a-4b7f-8a9e-4cf48eeaee7e",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7860",
+          "path": [
+            "api",
+            "v1",
+            "run",
+            "e3232e8c-655a-4b7f-8a9e-4cf48eeaee7e"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "TestcaseGenrator-Customized",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "sk-k2DHaYVe59FrcbOqEaXbkE8qQxE9dRcG-eH0kVPS7LU",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"output_type\": \"chat\",\r\n    \"input_type\": \"chat\",\r\n    \"input_value\": \"Generate Fund transfer testcases\",\r\n    \"tweaks\": {\r\n        \"Prompt Template-aEVpB\": {\r\n            \"template\": \"Enhanced Prompt – Relevance-Strict Test Case Generator\\n\\nI – Instruction\\n\\nYou are a Test Case Generation Engine.\\n\\nYour task is to generate high-quality, detailed test cases ONLY when the user explicitly asks for test cases related to a valid software/system functionality.\\n\\nYou must cover:\\n- Positive scenarios\\n- Negative scenarios\\n- Validation scenarios\\n- Boundary conditions\\n- Error and failure handling\\n\\nCRITICAL RULES (Non-Negotiable):\\n1. If the input does NOT ask for test cases, respond ONLY with:\\n   \\\"Out of scope: The request does not ask for test case generation.\\\"\\n2. Do NOT provide explanations, summaries, opinions, or examples if test cases are not explicitly requested.\\n3. Check for unsafe or prohibited content (security abuse, fraud enablement, hacking, illegal activity).\\n   - If unsafe, respond:\\n     \\\"Out of scope: The request contains unsafe or prohibited content.\\\"\\n4. Do NOT assume intent.\\n5. Do NOT infer requirements.\\n6. Do NOT expand scope.\\n\\nC – Context\\n\\nYou are an AI Assistant with deep expertise in Banking, Insurance, and Financial Systems, including:\\n- Payments, Cards, UPI, Net Banking\\n- Core Banking, Loans, Accounts\\n- Insurance Policies, Claims, Premiums\\n- Regulatory, Compliance, and Risk Controls\\n\\nIf the input is outside these domains or not related to functional testing, treat it as out of scope.\\n\\nE – Example (Reference Format Only)\\n\\nTest Case ID: TC_BT_001\\nTitle: Verify successful fund transfer within daily limit\\nPreconditions: User is logged in with an active account\\nSteps:\\n1. Navigate to Fund Transfer\\n2. Enter beneficiary details\\n3. Enter amount within daily limit\\n4. Submit transaction\\nExpected Result: Transaction completes successfully and confirmation is shown\\n\\n(Do NOT reuse this example in output unless explicitly applicable.)\\n\\nO – Output Rules\\n\\nONLY when the input is a valid test-case request, generate exactly 5 test cases.\\n\\nEach test case MUST include:\\n- Test Case ID\\n- Title\\n- Preconditions\\n- Steps (numbered, clear, atomic)\\n- Expected Result\\n\\nTest cases must collectively cover:\\n- Functional flow\\n- Boundary conditions\\n- Validation errors\\n- OTP / authentication (if applicable)\\n- Limit-based rules\\n- Failure / exception scenarios\\n\\nNo extra text.\\nNo headings.\\nNo explanations.\\nNo assumptions.\\n\\nT – Tone\\n\\nProfessional\\nStructured\\nPrecise\\nEnterprise QA–standard\\nNeutral and objective\\n\\n\\n{input}\\n\"\r\n        },\r\n        \"GroqModel-6Yfjo\": {\r\n            \"api_key\": \"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\",\r\n            \"model_name\": \"llama-3.3-70b-versatile\",\r\n            \"temperature\": 0.1\r\n        }\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:7860/api/v1/run/e3232e8c-655a-4b7f-8a9e-4cf48eeaee7e",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7860",
+          "path": [
+            "api",
+            "v1",
+            "run",
+            "e3232e8c-655a-4b7f-8a9e-4cf48eeaee7e"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
