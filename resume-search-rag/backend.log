@@ -1,0 +1,56 @@
+[INFO] 11:47:45 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.3)
+{"level":30,"time":1772345865375,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","port":3000,"msg":"Server started on port 3000"}
+{"level":30,"time":1772345878346,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"b06b7dfc-57b3-49cd-bf49-6bbf6c7c2654","method":"POST","url":"/v1/search/bm25","msg":"request_start"}
+{"level":30,"time":1772345878346,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","msg":"search.bm25.request","requestId":"b06b7dfc-57b3-49cd-bf49-6bbf6c7c2654","queryLen":9,"topK":2}
+{"level":30,"time":1772345878393,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"b06b7dfc-57b3-49cd-bf49-6bbf6c7c2654","method":"POST","url":"/bm25","status":200,"durationMs":47,"msg":"request_end"}
+{"level":30,"time":1772345941490,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"71d2c934-9e13-42ee-9536-4543de708370","method":"POST","url":"/v1/search/hybrid","msg":"request_start"}
+{"level":30,"time":1772345941491,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","msg":"search.hybrid.request","requestId":"71d2c934-9e13-42ee-9536-4543de708370","queryLen":47,"topK":20}
+[SearchService] Vector search failed: Cannot execute $search over vectorSearch index 'vector_index_resumes': Cannot execute $search over vectorSearch index 'vector_index_resumes'
+{"level":30,"time":1772345943265,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"71d2c934-9e13-42ee-9536-4543de708370","method":"POST","url":"/hybrid","status":200,"durationMs":1775,"msg":"request_end"}
+{"level":30,"time":1772345968647,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"7cf1cc0f-9edd-4cea-a768-ecbf80c54743","method":"POST","url":"/v1/search/hybrid","msg":"request_start"}
+{"level":30,"time":1772345968648,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","msg":"search.hybrid.request","requestId":"7cf1cc0f-9edd-4cea-a768-ecbf80c54743","queryLen":21,"topK":20}
+[SearchService] Vector search failed: Cannot execute $search over vectorSearch index 'vector_index_resumes': Cannot execute $search over vectorSearch index 'vector_index_resumes'
+{"level":30,"time":1772345969150,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"7cf1cc0f-9edd-4cea-a768-ecbf80c54743","method":"POST","url":"/hybrid","status":200,"durationMs":503,"msg":"request_end"}
+{"level":30,"time":1772346768649,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"2f271cba-1063-415d-99ac-5fde8dab2ddc","method":"POST","url":"/v1/search/hybrid","msg":"request_start"}
+{"level":30,"time":1772346768650,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","msg":"search.hybrid.request","requestId":"2f271cba-1063-415d-99ac-5fde8dab2ddc","queryLen":47,"topK":20}
+[SearchService] Vector search failed: Cannot execute $search over vectorSearch index 'vector_index_resumes': Cannot execute $search over vectorSearch index 'vector_index_resumes'
+{"level":30,"time":1772346771540,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"2f271cba-1063-415d-99ac-5fde8dab2ddc","method":"POST","url":"/hybrid","status":200,"durationMs":2891,"msg":"request_end"}
+{"level":30,"time":1772346777957,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"48743861-4288-49ed-adf6-c8442f1b8de3","method":"POST","url":"/v1/search/hybrid","msg":"request_start"}
+{"level":30,"time":1772346777957,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","msg":"search.hybrid.request","requestId":"48743861-4288-49ed-adf6-c8442f1b8de3","queryLen":47,"topK":20}
+[SearchService] Vector search failed: Cannot execute $search over vectorSearch index 'vector_index_resumes': Cannot execute $search over vectorSearch index 'vector_index_resumes'
+{"level":30,"time":1772346778604,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"48743861-4288-49ed-adf6-c8442f1b8de3","method":"POST","url":"/hybrid","status":200,"durationMs":647,"msg":"request_end"}
+{"level":30,"time":1772346783141,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"5e787a3f-e1d7-4382-b29d-79b8a2ac3672","method":"POST","url":"/v1/search/hybrid","msg":"request_start"}
+{"level":30,"time":1772346783141,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","msg":"search.hybrid.request","requestId":"5e787a3f-e1d7-4382-b29d-79b8a2ac3672","queryLen":42,"topK":20}
+[SearchService] Vector search failed: Cannot execute $search over vectorSearch index 'vector_index_resumes': Cannot execute $search over vectorSearch index 'vector_index_resumes'
+{"level":30,"time":1772346783745,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"5e787a3f-e1d7-4382-b29d-79b8a2ac3672","method":"POST","url":"/hybrid","status":200,"durationMs":604,"msg":"request_end"}
+{"level":30,"time":1772346817853,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"349f143f-63a9-49b3-abb8-28e6f35fc73d","method":"POST","url":"/v1/search/hybrid","msg":"request_start"}
+{"level":30,"time":1772346817855,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","msg":"search.hybrid.request","requestId":"349f143f-63a9-49b3-abb8-28e6f35fc73d","queryLen":8,"topK":20}
+[SearchService] Vector search failed: Cannot execute $search over vectorSearch index 'vector_index_resumes': Cannot execute $search over vectorSearch index 'vector_index_resumes'
+{"level":30,"time":1772346818348,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"349f143f-63a9-49b3-abb8-28e6f35fc73d","method":"POST","url":"/hybrid","status":200,"durationMs":495,"msg":"request_end"}
+{"level":30,"time":1772346897535,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"a41ad5fc-ff04-4d9f-b75a-01210feae721","method":"POST","url":"/v1/search/hybrid","msg":"request_start"}
+{"level":30,"time":1772346897537,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","msg":"search.hybrid.request","requestId":"a41ad5fc-ff04-4d9f-b75a-01210feae721","queryLen":47,"topK":20}
+[SearchService] Vector search failed: Cannot execute $search over vectorSearch index 'vector_index_resumes': Cannot execute $search over vectorSearch index 'vector_index_resumes'
+{"level":30,"time":1772346898415,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"a41ad5fc-ff04-4d9f-b75a-01210feae721","method":"POST","url":"/hybrid","status":200,"durationMs":880,"msg":"request_end"}
+{"level":30,"time":1772346911753,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"44d5fc46-ce71-4311-b7d5-6e69b5ff05a2","method":"POST","url":"/v1/search/vector","msg":"request_start"}
+{"level":30,"time":1772346911754,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","msg":"search.vector.request","requestId":"44d5fc46-ce71-4311-b7d5-6e69b5ff05a2","queryLen":47,"topK":20}
+{"level":30,"time":1772346914392,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"44d5fc46-ce71-4311-b7d5-6e69b5ff05a2","method":"POST","url":"/vector","status":200,"durationMs":2639,"msg":"request_end"}
+{"level":30,"time":1772346992096,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"bb950c74-e883-474f-a8a4-c36944910851","method":"POST","url":"/v1/search/hybrid","msg":"request_start"}
+{"level":30,"time":1772346992097,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","msg":"search.hybrid.request","requestId":"bb950c74-e883-474f-a8a4-c36944910851","queryLen":47,"topK":20}
+[SearchService] Vector search failed: Cannot execute $search over vectorSearch index 'vector_index_resumes': Cannot execute $search over vectorSearch index 'vector_index_resumes'
+{"level":30,"time":1772346992720,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"bb950c74-e883-474f-a8a4-c36944910851","method":"POST","url":"/hybrid","status":200,"durationMs":624,"msg":"request_end"}
+{"level":30,"time":1772347050758,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"14060e76-fefe-4c4d-a1c0-f2c84ee31c5e","method":"POST","url":"/v1/search/hybrid","msg":"request_start"}
+{"level":30,"time":1772347050760,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","msg":"search.hybrid.request","requestId":"14060e76-fefe-4c4d-a1c0-f2c84ee31c5e","queryLen":47,"topK":20}
+[SearchService] Vector search failed: Cannot execute $search over vectorSearch index 'vector_index_resumes': Cannot execute $search over vectorSearch index 'vector_index_resumes'
+{"level":30,"time":1772347051320,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"14060e76-fefe-4c4d-a1c0-f2c84ee31c5e","method":"POST","url":"/hybrid","status":200,"durationMs":563,"msg":"request_end"}
+{"level":30,"time":1772347197387,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"89314efd-bc2e-45eb-ae65-591f09236f53","method":"POST","url":"/v1/search/hybrid","msg":"request_start"}
+{"level":30,"time":1772347197387,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","msg":"search.hybrid.request","requestId":"89314efd-bc2e-45eb-ae65-591f09236f53","queryLen":9,"topK":10}
+[SearchService] Vector search failed: Cannot execute $search over vectorSearch index 'vector_index_resumes': Cannot execute $search over vectorSearch index 'vector_index_resumes'
+{"level":30,"time":1772347197869,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"89314efd-bc2e-45eb-ae65-591f09236f53","method":"POST","url":"/hybrid","status":200,"durationMs":482,"msg":"request_end"}
+{"level":30,"time":1772347285042,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"cb6adb2a-b761-403e-8144-bc0f0e6462ff","method":"POST","url":"/v1/search/hybrid","msg":"request_start"}
+{"level":30,"time":1772347285043,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","msg":"search.hybrid.request","requestId":"cb6adb2a-b761-403e-8144-bc0f0e6462ff","queryLen":47,"topK":20}
+[SearchService] Vector search failed: Cannot execute $search over vectorSearch index 'vector_index_resumes': Cannot execute $search over vectorSearch index 'vector_index_resumes'
+{"level":30,"time":1772347285661,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"cb6adb2a-b761-403e-8144-bc0f0e6462ff","method":"POST","url":"/hybrid","status":200,"durationMs":619,"msg":"request_end"}
+{"level":30,"time":1772347700287,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"f038a2e1-ea44-4549-aa20-568f653f1713","method":"POST","url":"/v1/search/hybrid","msg":"request_start"}
+{"level":30,"time":1772347700287,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","msg":"search.hybrid.request","requestId":"f038a2e1-ea44-4549-aa20-568f653f1713","queryLen":47,"topK":20}
+[SearchService] Vector search failed: Cannot execute $search over vectorSearch index 'vector_index_resumes': Cannot execute $search over vectorSearch index 'vector_index_resumes'
+{"level":30,"time":1772347700850,"pid":21135,"hostname":"Shaiks-MacBook-Air.local","requestId":"f038a2e1-ea44-4549-aa20-568f653f1713","method":"POST","url":"/hybrid","status":200,"durationMs":564,"msg":"request_end"}

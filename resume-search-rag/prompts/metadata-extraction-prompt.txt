@@ -1,0 +1,12 @@
+{
+  "name": "Candidate Name",
+  "email": "candidate@example.com",
+  "phone": "123-456-7890",
+  "location": "City, Country",
+  "company": "Most Recent Company",
+  "role": "Job Title",
+  "education": "Highest Degree",
+  "total_experience": 5,
+  "relevant_experience": 3,
+  "skills": ["Skill1", "Skill2", "Skill3"]
+}

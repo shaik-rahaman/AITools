@@ -1,0 +1,35 @@
+
+> resume-search-rag@0.1.0 dev
+> ts-node-dev --respawn --transpile-only src/server.ts
+
+[INFO] 05:47:28 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.3)
+{"level":30,"time":1772324249484,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","port":3000,"msg":"Server started on port 3000"}
+{"level":30,"time":1772324251858,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"5dd38c05-4872-4b81-9f74-14622fa73309","method":"GET","url":"/v1/health","msg":"request_start"}
+{"level":30,"time":1772324251861,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"5dd38c05-4872-4b81-9f74-14622fa73309","method":"GET","url":"/","status":200,"durationMs":3,"msg":"request_end"}
+{"level":30,"time":1772324251871,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"37192567-14e7-40dd-8dfb-93e46448c6c3","method":"GET","url":"/v1/health/db","msg":"request_start"}
+{"level":30,"time":1772324251907,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"37192567-14e7-40dd-8dfb-93e46448c6c3","method":"GET","url":"/db","status":200,"durationMs":36,"msg":"request_end"}
+{"level":30,"time":1772324251926,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"fe6202b8-6270-49bf-b85a-76a4e796e44a","method":"POST","url":"/v1/embeddings","msg":"request_start"}
+{"level":30,"time":1772324252284,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"fe6202b8-6270-49bf-b85a-76a4e796e44a","method":"POST","url":"/","status":200,"durationMs":358,"msg":"request_end"}
+{"level":30,"time":1772324252304,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"43133168-8a55-4e1f-a3c9-3a90f5d719e3","method":"POST","url":"/v1/search/bm25","msg":"request_start"}
+{"level":30,"time":1772324252304,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","msg":"search.bm25.request","requestId":"43133168-8a55-4e1f-a3c9-3a90f5d719e3","queryLen":17,"topK":3}
+{"level":30,"time":1772324252346,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"43133168-8a55-4e1f-a3c9-3a90f5d719e3","method":"POST","url":"/bm25","status":200,"durationMs":42,"msg":"request_end"}
+{"level":30,"time":1772324252360,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"7b7f0f44-6345-4fc1-87de-88e437882ad5","method":"POST","url":"/v1/search/vector","msg":"request_start"}
+{"level":30,"time":1772324252361,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","msg":"search.vector.request","requestId":"7b7f0f44-6345-4fc1-87de-88e437882ad5","queryLen":17,"topK":3}
+{"level":30,"time":1772324252751,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"7b7f0f44-6345-4fc1-87de-88e437882ad5","method":"POST","url":"/vector","status":200,"durationMs":391,"msg":"request_end"}
+{"level":30,"time":1772324252768,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"c50647a3-c11e-429c-a6ee-9a564a995035","method":"POST","url":"/v1/search/hybrid","msg":"request_start"}
+{"level":30,"time":1772324252768,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","msg":"search.hybrid.request","requestId":"c50647a3-c11e-429c-a6ee-9a564a995035","queryLen":17,"topK":3}
+{"level":30,"time":1772324253253,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"c50647a3-c11e-429c-a6ee-9a564a995035","method":"POST","url":"/hybrid","status":200,"durationMs":485,"msg":"request_end"}
+{"level":30,"time":1772324253262,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"00fdfd16-d73d-43b9-8c71-3321378f30b5","method":"POST","url":"/v1/search/rerank","msg":"request_start"}
+{"level":30,"time":1772324253262,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","msg":"search.rerank.request","requestId":"00fdfd16-d73d-43b9-8c71-3321378f30b5","queryLen":17,"candidateCount":1,"topK":3}
+{"level":30,"time":1772324253785,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"00fdfd16-d73d-43b9-8c71-3321378f30b5","method":"POST","url":"/rerank","status":200,"durationMs":523,"msg":"request_end"}
+{"level":30,"time":1772324253807,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"68e2b72e-2056-428c-9f23-621ca0da0f82","method":"POST","url":"/v1/search/summarize","msg":"request_start"}
+{"level":30,"time":1772324253807,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","msg":"llm.call.attempt","url":"https://api.groq.com/v1/outputs","useGroq":true}
+{"level":30,"time":1772324254030,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","msg":"llm.call.attempt","url":"https://api.groq.com/openai/v1/outputs","useGroq":true}
+{"level":50,"time":1772324254257,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","msg":"llm.summarize.error","error":"LLM upstream error","upstream":null}
+{"level":30,"time":1772324254258,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"68e2b72e-2056-428c-9f23-621ca0da0f82","method":"POST","url":"/summarize","status":200,"durationMs":451,"msg":"request_end"}
+{"level":30,"time":1772324254277,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"5852769c-19bb-422c-a363-00e76ecc81bb","method":"POST","url":"/v1/search","msg":"request_start"}
+{"level":30,"time":1772324254277,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","msg":"search.endtoend.request","requestId":"5852769c-19bb-422c-a363-00e76ecc81bb","queryLen":17,"topK":3,"rerankTopK":2,"summarize":true}
+{"level":30,"time":1772324254687,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"5852769c-19bb-422c-a363-00e76ecc81bb","method":"POST","url":"/","status":200,"durationMs":410,"msg":"request_end"}
+{"level":30,"time":1772324476987,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"cc156913-ebd6-4036-8a51-e4b6df951e44","method":"POST","url":"/v1/search","msg":"request_start"}
+{"level":30,"time":1772324476987,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","msg":"search.endtoend.request","requestId":"cc156913-ebd6-4036-8a51-e4b6df951e44","queryLen":31,"topK":20,"rerankTopK":8,"summarize":true}
+{"level":30,"time":1772324478049,"pid":82838,"hostname":"Shaiks-MacBook-Air.local","requestId":"cc156913-ebd6-4036-8a51-e4b6df951e44","method":"POST","url":"/","status":200,"durationMs":1062,"msg":"request_end"}

@@ -1,0 +1,11 @@
+Here are the contents for the file /resume-search-rag/resume-search-rag/prompts/summarize-prompt.txt:
+
+Generate a concise summary of the candidate's qualifications and experiences based on the following resume snippet. Focus on the key skills, relevant experiences, and educational background that make the candidate suitable for the specified role.
+
+Resume Snippet:
+"{resume_snippet}"
+
+Role Description:
+"{role_description}"
+
+Please provide a summary that highlights the candidate's fit for the role, including any specific skills or experiences that align with the job requirements. The summary should be clear, professional, and suitable for inclusion in a hiring report.
