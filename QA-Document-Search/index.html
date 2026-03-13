@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA Bot - Document Question & Answer</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .file-upload {
+            border: 2px dashed #ccc;
+            border-radius: 5px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+        .file-upload.dragover {
+            border-color: #007bff;
+            background-color: #f8f9fa;
+        }
+        .file-list {
+            margin-top: 10px;
+        }
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .file-item button {
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 2px 8px;
+            cursor: pointer;
+        }
+        .question-section {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        .prompt-select {
+            margin-bottom: 20px;
+        }
+        select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #007bff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            display: none;
+        }
+        .result h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .metadata {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .error {
+            color: #dc3545;
+            background: #f8d7da;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QA Bot - Document Question & Answer</h1>
+
+        <form id="qaForm">
+            <div class="file-upload" id="dropZone">
+                <p>Drag and drop files here or click to select</p>
+                <input type="file" id="fileInput" multiple accept=".txt,.csv,.pdf,.docx" style="display: none;">
+                <div class="file-list" id="fileList"></div>
+            </div>
+
+            <div class="question-section">
+                <label for="question">Question:</label><br>
+                <textarea id="question" name="question" placeholder="Ask a question about your documents..." required></textarea>
+            </div>
+
+            <div class="prompt-select">
+                <label for="promptType">Response Style:</label>
+                <select id="promptType" name="promptType">
+                    <option value="default">Default</option>
+                    <option value="detailed">Detailed</option>
+                    <option value="concise">Concise</option>
+                    <option value="technical">Technical</option>
+                </select>
+            </div>
+
+            <button type="submit" id="submitBtn">Ask Question</button>
+        </form>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Processing your question...</p>
+        </div>
+
+        <div class="result" id="result">
+            <div class="metadata" id="metadata"></div>
+            <div id="answer"></div>
+        </div>
+
+        <div class="error" id="error"></div>
+    </div>
+
+    <script>
+        class QABotApp {
+            constructor() {
+                this.files = [];
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+            }
+
+            bindEvents() {
+                const dropZone = document.getElementById('dropZone');
+                const fileInput = document.getElementById('fileInput');
+                const form = document.getElementById('qaForm');
+
+                dropZone.addEventListener('click', () => fileInput.click());
+                dropZone.addEventListener('dragover', this.handleDragOver.bind(this));
+                dropZone.addEventListener('dragleave', this.handleDragLeave.bind(this));
+                dropZone.addEventListener('drop', this.handleDrop.bind(this));
+                fileInput.addEventListener('change', this.handleFileSelect.bind(this));
+                form.addEventListener('submit', this.handleSubmit.bind(this));
+            }
+
+            handleDragOver(e) {
+                e.preventDefault();
+                e.currentTarget.classList.add('dragover');
+            }
+
+            handleDragLeave(e) {
+                e.preventDefault();
+                e.currentTarget.classList.remove('dragover');
+            }
+
+            handleDrop(e) {
+                e.preventDefault();
+                e.currentTarget.classList.remove('dragover');
+                const files = Array.from(e.dataTransfer.files);
+                this.addFiles(files);
+            }
+
+            handleFileSelect(e) {
+                const files = Array.from(e.target.files);
+                this.addFiles(files);
+            }
+
+            addFiles(files) {
+                for (const file of files) {
+                    if (!this.files.find(f => f.name === file.name && f.size === file.size)) {
+                        this.files.push(file);
+                    }
+                }
+                this.updateFileList();
+            }
+
+            removeFile(index) {
+                this.files.splice(index, 1);
+                this.updateFileList();
+            }
+
+            updateFileList() {
+                const fileList = document.getElementById('fileList');
+                fileList.innerHTML = '';
+                this.files.forEach((file, index) => {
+                    const fileItem = document.createElement('div');
+                    fileItem.className = 'file-item';
+                    fileItem.innerHTML = `
+                        <span>${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)</span>
+                        <button type="button" onclick="app.removeFile(${index})">Remove</button>
+                    `;
+                    fileList.appendChild(fileItem);
+                });
+            }
+
+            async handleSubmit(e) {
+                e.preventDefault();
+
+                const question = document.getElementById('question').value.trim();
+                const promptType = document.getElementById('promptType').value;
+
+                if (!question) {
+                    this.showError('Please enter a question.');
+                    return;
+                }
+
+                if (this.files.length === 0) {
+                    this.showError('Please upload at least one document.');
+                    return;
+                }
+
+                this.showLoading(true);
+                this.hideError();
+                this.hideResult();
+
+                try {
+                    const formData = new FormData();
+                    this.files.forEach(file => formData.append('files', file));
+                    formData.append('question', question);
+                    formData.append('promptType', promptType);
+
+                    const response = await fetch('/search/documents', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    this.showResult(data);
+                } catch (error) {
+                    console.error('Error:', error);
+                    this.showError('An error occurred while processing your request. Please try again.');
+                } finally {
+                    this.showLoading(false);
+                }
+            }
+
+            showLoading(show) {
+                document.getElementById('loading').style.display = show ? 'block' : 'none';
+                document.getElementById('submitBtn').disabled = show;
+            }
+
+            showResult(data) {
+                const resultDiv = document.getElementById('result');
+                const metadataDiv = document.getElementById('metadata');
+                const answerDiv = document.getElementById('answer');
+
+                metadataDiv.textContent = `Model: ${data.model} | Provider: ${data.provider} | Style: ${data.promptType}`;
+                answerDiv.innerHTML = this.escapeHtml(data.output);
+
+                resultDiv.style.display = 'block';
+            }
+
+            hideResult() {
+                document.getElementById('result').style.display = 'none';
+            }
+
+            showError(message) {
+                const errorDiv = document.getElementById('error');
+                errorDiv.textContent = message;
+                errorDiv.style.display = 'block';
+            }
+
+            hideError() {
+                document.getElementById('error').style.display = 'none';
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+        }
+
+        const app = new QABotApp();
+    </script>
+</body>
+</html>
