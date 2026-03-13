@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "npx vite": true,
+        "npm install": true,
+        "lsof": true,
+        "nohup": true
+    }
+}
