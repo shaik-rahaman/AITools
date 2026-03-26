@@ -1,0 +1,6 @@
+#!/Users/shaik/backup/NewJob/Courses/testleaf/GenAI_Tool_Developer/DeepEval/llm-evaluation-metrics/llm-eval-providers/venv/bin/python3.11
+import sys
+from pytest import console_main
+if __name__ == '__main__':
+    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.exit(console_main())
